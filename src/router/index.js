@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import HomePage from '@/pages/HomePage'
-import ThreadShowPage from '@/pages/ThreadShowPage'
-import NotFoundPage from '@/pages/NotFoundPage'
+import Home from '@/pages/Home'
+import ThreadShow from '@/pages/ThreadShow'
+import NotFound from '@/pages/NotFound'
 import srcData from '@/data.json'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HomePage
+    component: Home
   },
   {
     path: '/threads/:id',
     name: 'ThreadShow',
-    component: ThreadShowPage,
+    component: ThreadShow,
     props: true,
     beforeEnter: (to, from, next) => {
       const threadExists = srcData.threads.find(
@@ -36,7 +36,7 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    component: NotFoundPage
+    component: NotFound
   }
 ]
 

@@ -35,7 +35,7 @@
 import srcData from '@/data.json'
 
 export default {
-  name: 'ThreadShowPage',
+  name: 'ThreadShow',
   props: {
     id: {
       type: String,

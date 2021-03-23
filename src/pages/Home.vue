@@ -8,7 +8,7 @@ import ThreadList from '@/components/ThreadList'
 import srcData from '@/data.json'
 
 export default {
-  name: 'HomePage',
+  name: 'Home',
   components: { ThreadList },
   data () {
     return {
