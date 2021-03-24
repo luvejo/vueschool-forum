@@ -1,23 +1,20 @@
 <template>
   <h1>Welcom to the forum</h1>
-  <ThreadList :threads="threads"/>
+
+  <CategoryList :categories="categories" />
 </template>
 
 <script>
-import ThreadList from '@/components/ThreadList'
+import CategoryList from '@/components/CategoryList'
 import srcData from '@/data.json'
 
 export default {
   name: 'Home',
-  components: { ThreadList },
+  components: { CategoryList },
   data () {
     return {
-      threads: srcData.threads
+      categories: srcData.categories
     }
   }
 }
 </script>
-
-<style>
-
-</style>

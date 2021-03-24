@@ -3,7 +3,9 @@
     <div class="forum-list">
 
       <h2 class="list-title">
-        <a href="#">Forums</a>
+        <router-link :to="{name: 'Category', params: {id: category.id} }">
+          {{ category.name }}
+        </router-link>
       </h2>
 
       <div class="forum-listing" v-for="forum in forums" :key="forum.id">
@@ -38,6 +40,10 @@ export default {
   props: {
     forums: {
       type: Array,
+      required: true
+    },
+    category: {
+      type: Object,
       required: true
     }
   }
