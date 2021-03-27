@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import srcData from '@/data.json'
+import { mapState } from 'vuex'
 
 export default {
   props: {
@@ -50,12 +50,7 @@ export default {
       required: true
     }
   },
-  data () {
-    return {
-      posts: srcData.posts,
-      users: srcData.users
-    }
-  },
+  computed: mapState(['users', 'posts']),
   methods: {
     postById (postId) {
       return this.posts.find(p => p.id === postId)

@@ -5,16 +5,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import CategoryList from '@/components/CategoryList'
-import srcData from '@/data.json'
 
 export default {
   name: 'Home',
   components: { CategoryList },
-  data () {
-    return {
-      categories: srcData.categories
-    }
-  }
+  computed: mapState(['categories'])
 }
 </script>

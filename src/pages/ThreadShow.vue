@@ -8,9 +8,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import PostList from '@/components/PostList'
 import PostEditor from '@/components/PostEditor'
-import srcData from '@/data.json'
 
 export default {
   name: 'ThreadShow',
@@ -26,12 +27,12 @@ export default {
   },
   data () {
     return {
-      threads: srcData.threads,
-      posts: srcData.posts,
       newPostText: ''
     }
   },
   computed: {
+    ...mapState(['threads', 'posts']),
+
     thread () {
       return this.threads.find(thread => thread.id === this.id)
     },

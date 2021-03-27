@@ -5,7 +5,6 @@
 
 <script>
 import ForumList from '@/components/ForumList'
-import srcData from '@/data.json'
 
 export default {
   name: 'Category',
@@ -18,10 +17,10 @@ export default {
   },
   computed: {
     category () {
-      return srcData.categories.find(category => category.id === this.id)
+      return this.$store.state.categories.find(category => category.id === this.id)
     },
     forums () {
-      return srcData.forums.filter(forum => forum.categoryId === this.id)
+      return this.$store.state.forums.filter(forum => forum.categoryId === this.id)
     }
   }
 }
