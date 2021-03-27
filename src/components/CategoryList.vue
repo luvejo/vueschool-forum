@@ -1,10 +1,8 @@
 <template>
-  <div v-for="category in categories" :key="category.id">
-    <ForumList
-      :forums="forumsByCategory(category)"
-      :category="category"
-    />
-  </div>
+  <ForumList v-for="category in categories" :key="category.id"
+    :forums="forumsByCategory(category)"
+    :category="category"
+  />
 </template>
 
 <script>

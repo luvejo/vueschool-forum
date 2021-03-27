@@ -1,6 +1,5 @@
 <template>
-  <h1>Welcom to the forum</h1>
-
+  <h1 class="push-top">Welcom to the forum</h1>
   <CategoryList :categories="categories" />
 </template>
 
