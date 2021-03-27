@@ -42,11 +42,8 @@ export default {
   },
   methods: {
     addPost ({ post }) {
-      this.posts.push({
-        ...post,
-        threadId: this.id
-      })
-      this.thread.posts.push(post.id)
+      post.threadId = this.id
+      this.$store.dispatch('createPost')
     }
   }
 }
