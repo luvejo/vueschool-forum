@@ -23,7 +23,11 @@ const routes = [
   {
     path: '/me',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      toTop: true,
+      smoothScroll: true
+    }
   },
   {
     path: '/me/edit',
@@ -70,7 +74,15 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior (to) {
+    const scroll = {}
+
+    if (to.meta.toTop) scroll.top = 0
+    if (to.meta.smoothScroll) scroll.behavior = 'smooth'
+
+    return scroll
+  }
 })
 
 export default router
