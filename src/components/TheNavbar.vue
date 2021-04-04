@@ -68,7 +68,3 @@ export default {
   computed: mapGetters(['authUser'])
 }
 </script>
-
-<style>
-
-</style>
