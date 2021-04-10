@@ -3,7 +3,7 @@
     <h1>
       {{ thread.title }}
       <router-link
-        :to="{ name: 'ThreadEdit', id: this.id }"
+        :to="{ name: 'ThreadEdit', params: { id: this.id } }"
         class="btn-green btn-small"
         tag="button"
       >
