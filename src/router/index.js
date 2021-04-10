@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home'
 import ThreadShow from '@/pages/ThreadShow'
 import ThreadCreate from '@/pages/ThreadCreate'
+import ThreadEdit from '@/pages/ThreadEdit'
 import NotFound from '@/pages/NotFound'
 import Category from '@/pages/Category'
 import Forum from '@/pages/Forum'
@@ -65,6 +66,12 @@ const routes = [
         hash: to.hash
       })
     }
+  },
+  {
+    path: '/threads/:id/edit',
+    name: 'ThreadEdit',
+    component: ThreadEdit,
+    props: true
   },
   {
     path: '/forums/:forumId/threads/new',

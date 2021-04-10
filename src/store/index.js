@@ -67,6 +67,18 @@ export default createStore({
         threadId: post.threadId
       })
     },
+    updateThread ({ commit, state }, { id, title, text }) {
+      const thread = state.threads.find(thread => thread.id === id)
+      const post = state.posts.find(post => post.id === thread.posts[0])
+
+      const newThread = { ...thread, title }
+      const newPost = { ...post, text }
+
+      commit('updateThread', newThread)
+      commit('updatePost', newPost)
+
+      return newThread
+    },
     updateUser ({ commit }, user) {
       commit('updateUser', { data: user, userId: user.id })
     }
@@ -76,6 +88,20 @@ export default createStore({
     updateUser (state, { data, userId }) {
       const userIndex = state.users.findIndex(user => user.id === userId)
       state.users[userIndex] = data
+    },
+
+    updateThread (state, newThread) {
+      const index = state.threads.findIndex(
+        thread => thread.id === newThread.id)
+
+      state.threads[index] = newThread
+    },
+
+    updatePost (state, newPost) {
+      const index = state.posts.findIndex(
+        post => post.id === newPost.id)
+
+      state.posts[index] = newPost
     },
 
     appendThread (state, { thread }) {

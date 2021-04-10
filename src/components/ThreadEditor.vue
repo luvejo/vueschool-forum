@@ -27,17 +27,29 @@
       <button @click.prevent="$emit('cancel')" class="btn btn-ghost">
         Cancel
       </button>
-      <button class="btn btn-blue" type="submit" name="Publish">Publish</button>
+      <button class="btn btn-blue" type="submit" name="Publish">
+        {{ existing ? "Update" : "Publish" }}
+      </button>
     </div>
   </form>
 </template>
 
 <script>
 export default {
+  props: {
+    initialData: {
+      type: Object
+    }
+  },
   data () {
     return {
-      title: '',
-      text: ''
+      title: this.initialData?.title,
+      text: this.initialData?.text
+    }
+  },
+  computed: {
+    existing () {
+      return !!this.initialData
     }
   },
   methods: {
